@@ -5,7 +5,7 @@
     name="Trunk">
     <inertial>
       <origin
-        xyz="0.0551365401093076 -1.42058017623659E-06 0.105062332707657"
+        xyz="-0.0073634598906924 -1.42058017623659E-06 0.105062332707657"
         rpy="0 0 0" />
       <mass
         value="11.7" />
@@ -432,7 +432,7 @@
     type="revolute">
     <origin
       xyz="0 0.105 0.00025"
-      rpy="0 0 0" />
+      rpy="0 0.19 0" />
     <parent
       link="AL4" />
     <child
@@ -1097,7 +1097,7 @@
     type="revolute">
     <origin
       xyz="0 -0.105 0.00025"
-      rpy="0 0 0" />
+      rpy="0 0.19 0" />
     <parent
       link="AR4" />
     <child
