@@ -1016,7 +1016,7 @@
     </collision>
   </link>
   <joint
-    name="Waist_Joint"
+    name="Waist"
     type="revolute">
     <origin
       xyz="0.0625 0 -0.1155"
