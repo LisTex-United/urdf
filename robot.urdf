@@ -432,7 +432,7 @@
     type="revolute">
     <origin
       xyz="0 0.105 0.00025"
-      rpy="0 0 0" />
+      rpy="0 0.19 0" />
     <parent
       link="AL4" />
     <child
@@ -845,7 +845,7 @@
     type="revolute">
     <origin
       xyz="0 -0.105 0.00025"
-      rpy="0 0 0" />
+      rpy="0 0.19 0" />
     <parent
       link="AR4" />
     <child
