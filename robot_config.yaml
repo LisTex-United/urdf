@@ -2,6 +2,50 @@ record_config:
   type: "LCM" # options: ["LCM", "LCM2DevSuite"]
   interval: 20 # record every N frames
   lcm_channel: "CHANNEL_RECORD_TO_DEV_SUITE"
+net2can_config:
+  net2cans:
+    - net2can:
+      index: 0
+      board_type: 3
+      firmware_major: 2
+      firmware_minor: 0
+      firmware_patch: 5
+    - net2can:
+      index: 1
+      board_type: 1
+      firmware_major: 2
+      firmware_minor: 0
+      firmware_patch: 5
+    - net2can:
+      index: 2
+      board_type: 1
+      firmware_major: 2
+      firmware_minor: 0
+      firmware_patch: 5
+    - net2can:
+      index: 3
+      board_type: 1
+      firmware_major: 2
+      firmware_minor: 0
+      firmware_patch: 5
+    - net2can:
+      index: 4
+      board_type: 1
+      firmware_major: 2
+      firmware_minor: 0
+      firmware_patch: 5
+adc_config: #adc信号采集示例
+  adcs:
+  - adc:
+    type: "adc_monitor"
+    can_channel: 0
+    can_id: 0
+    comm_type: 1
+    volt_sample_max: 3.3 
+    volt_sample_resolution: 0.045
+    current_sample_resolution: 0.1 
+    current_sample_max: 3.3 
+    current_sample_offset: 2.5 
 hand_config:
   hands:
   - hand: # Left
@@ -43,6 +87,11 @@ battery_config:
   baudrate: 9600
   card: 0
   channel: 1
+joystick_config:
+  type: "J1"
+  channel: 0
+  serial_num: 2
+  comm_type: 0
 joint_config:
   use_same_servo_params: false
   cmd_torque_per_cnt: 1
@@ -62,8 +111,8 @@ joint_config:
     motor_name: "Head_Yaw"
     limit:
       security_level: 1
-      max_position: 1.5708
-      min_position: -1.5708
+      max_position: 1.0123
+      min_position: -1.0123
   - joint: #1
     type: 3
     can_channel: 0
@@ -77,8 +126,8 @@ joint_config:
     motor_name: "Head_pitch"
     limit:
       security_level: 1
-      max_position: 1.2217
-      min_position: -0.3491
+      max_position: 0.8203
+      min_position: -0.3142
 #left arm
 #card4 channel 
   - joint: #2
@@ -95,8 +144,8 @@ joint_config:
     motor_name: "Left_Shoulder_Pitch"
     limit:
       security_level: 2
-      max_position: 1.2217
-      min_position: -2.9671
+      max_position: 1.1868
+      min_position: -2.9321
   - joint: #3
     type: 2
     can_channel: 10
@@ -111,8 +160,8 @@ joint_config:
     motor_name: "Left_Shoulder_Roll"
     limit:
       security_level: 2
-      max_position: 1.9199
-      min_position: -2.4835
+      max_position: 1.7055
+      min_position: -1.7033
 #card4 channel 
   - joint: #4
     type: 2
@@ -128,8 +177,8 @@ joint_config:
     motor_name: "Left_Elbow_Pitch"
     limit:
       security_level: 2
-      max_position: 2.2689
-      min_position: -2.2689
+      max_position: 2.234
+      min_position: -2.234
   - joint: #5
     type: 2
     can_channel: 11
@@ -144,8 +193,8 @@ joint_config:
     motor_name: "Left_Elbow_Yaw"
     limit:
       security_level: 2
-      max_position: 2.1817
-      min_position: -2.1817
+      max_position: 1.71
+      min_position: -2.1402
 #card4 channel 
   - joint: #6
     type: 3
@@ -161,8 +210,8 @@ joint_config:
     motor_name: "Left_Wrist_Pitch"
     limit:
       security_level: 2
-      max_position: 2.6180
-      min_position: -2.6180
+      max_position: 2.5821
+      min_position: -2.5821
   - joint: #7
     type: 2
     can_channel: 9 
@@ -176,8 +225,8 @@ joint_config:
     motor_name: "Left_Wrist_Yaw"
     limit:
       security_level: 2
-      max_position: 1.46
-      min_position: -1.8326
+      max_position: 1.3614
+      min_position: -1.7977
   - joint: #8
     type: 3
     can_channel: 9 
@@ -191,8 +240,8 @@ joint_config:
     motor_name: "Left_Hand_Roll"
     limit:
       security_level: 2
-      max_position: 1.3090
-      min_position: -1.3963
+      max_position: 1.2741
+      min_position: -1.021
 #right arm 
 #card5 channel 
   - joint: #9
@@ -209,8 +258,8 @@ joint_config:
     motor_name: "Right_Shoulder_Pitch"
     limit:
       security_level: 2
-      max_position: 1.2217
-      min_position: -2.9671
+      max_position: 1.1868
+      min_position: -2.9321
   - joint: #10
     type: 2
     can_channel: 13
@@ -225,8 +274,8 @@ joint_config:
     motor_name: "Right_Shoulder_Roll"
     limit:
       security_level: 2
-      max_position: 2.4835
-      min_position: -1.9199
+      max_position: 1.7033
+      min_position: -1.7055
 #card5 channel 
   - joint: #11
     type: 2
@@ -242,8 +291,8 @@ joint_config:
     motor_name: "Right_Elbow_Pitch"
     limit:
       security_level: 2
-      max_position: 2.2689
-      min_position: -2.2689
+      max_position: 2.234
+      min_position: -2.234
   - joint: #12
     type: 2
     can_channel: 14
@@ -260,8 +309,8 @@ joint_config:
       security_level: 2
       # max_position: 0.2
       # min_position: -2.4434609528
-      max_position: 2.1817
-      min_position: -2.1817
+      max_position: 2.1468
+      min_position: -1.6844
 #card5 channel 
   - joint: #13
     type: 3
@@ -277,8 +326,8 @@ joint_config:
     motor_name: "Right_Wrist_Pitch"
     limit:
       security_level: 2
-      max_position: 2.6180
-      min_position: -2.6180
+      max_position: 2.5821
+      min_position: -2.5821
   - joint: #14
     type: 2
     can_channel: 12
@@ -292,8 +341,8 @@ joint_config:
     motor_name: "Right_Wrist_Yaw"
     limit:
       security_level: 2
-      max_position: 1.8326
-      min_position: -1.46
+      max_position: 1.7978
+      min_position: -1.3614
   - joint: #15
     type: 3
     can_channel: 12
@@ -307,8 +356,8 @@ joint_config:
     motor_name: "Right_Hand_Roll"
     limit:
       security_level: 2
-      max_position: 1.3963
-      min_position: -1.3090
+      max_position: 1.011
+      min_position: -1.2741
 #card 0 channel 1 waist 0_1
   - joint: #16
     type: 2
@@ -319,11 +368,11 @@ joint_config:
     cnt_per_round: 6.2831853
     cmd_torque_per_cnt: 2
     fb_torque_per_cnt: 1
-    motor_uid: "60#20240904020007"
+    motor_uid: "60#24C09002230016"
     motor_model: "6408"
     motor_name: "Waist"
     limit:
-      security_level: 3
+      security_level: 1
       max_position: 1.0123
       min_position: -1.0123
 #left leg
@@ -337,7 +386,7 @@ joint_config:
     cnt_per_round: 6.2831853
     cmd_torque_per_cnt: 3
     fb_torque_per_cnt: 1
-    motor_uid: "90#240811"
+    motor_uid: "90#24C16003020005"
     motor_model: "8112"
     motor_name: "Left_Hip_Pitch"
     limit:
@@ -353,7 +402,7 @@ joint_config:
     cnt_per_round: 6.2831853
     cmd_torque_per_cnt: 2
     fb_torque_per_cnt: 1
-    motor_uid: "24926002010003"
+    motor_uid: "60#24C09002230016"
     motor_model: "6408"
     motor_name: "Left_Hip_Roll"
     limit:
@@ -369,7 +418,7 @@ joint_config:
     cnt_per_round: 6.2831853
     cmd_torque_per_cnt: 2
     fb_torque_per_cnt: 1
-    motor_uid: "60#20240904020007"
+    motor_uid: "60#24C09002230016"
     motor_model: "6408"
     motor_name: "Left_Hip_Yaw"
     limit:
@@ -386,7 +435,7 @@ joint_config:
     cnt_per_round: 6.2831853
     cmd_torque_per_cnt: 5
     fb_torque_per_cnt: 1
-    motor_uid: "130#2024090431002"
+    motor_uid: "130#24C23003040009"
     motor_model: "8116"
     motor_name: "Left_Knee_Pitch"
     limit:
@@ -438,7 +487,7 @@ joint_config:
     cnt_per_round: 6.2831853
     cmd_torque_per_cnt: 3
     fb_torque_per_cnt: 1
-    motor_uid: "90#240811"
+    motor_uid: "90#24C16003020005"
     motor_model: "8112"
     motor_name: "Right_Hip_Pitch"
     limit:
@@ -454,7 +503,7 @@ joint_config:
     cnt_per_round: 6.2831853
     cmd_torque_per_cnt: 2
     fb_torque_per_cnt: 1
-    motor_uid: "24926002010003"
+    motor_uid: "60#24C09002230016"
     motor_model: "6408"
     motor_name: "Right_Hip_Roll"
     limit:
@@ -470,7 +519,7 @@ joint_config:
     cnt_per_round: 6.2831853
     cmd_torque_per_cnt: 2
     fb_torque_per_cnt: 1
-    motor_uid: "60#20240904020007"
+    motor_uid: "60#24C09002230016"
     motor_model: "6408"
     motor_name: "Right_Hip_Yaw"
     limit:
@@ -487,7 +536,7 @@ joint_config:
     cnt_per_round: 6.2831853
     cmd_torque_per_cnt: 5
     fb_torque_per_cnt: 1
-    motor_uid: "130#2024090431002"
+    motor_uid: "130#24C23003040009"
     motor_model: "8116"
     motor_name: "Right_Knee_Pitch"
     limit:
